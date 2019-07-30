@@ -12,6 +12,8 @@ that:
 
 - Leverage [this api](https://docs.spacexdata.com/?version=latest#cfcc49e7-5fe4-4dd3-9701-7c5caf7af9fb) to build out the following feature: If I tap on a list item from the list of launches, the list item should expand and show the following details: `flight_number, mission_name, mission_id`
 
+- Use Redux wherever useful
+
 
 ###### Other Instructions 
 While you're not expected to build an SPA that resembles a high-fidelity design, please make sure it is functional and also has appropriate UI elements in place. Don't worry about colors etc too much as it is code quality and various choices you make in the process that matter most.

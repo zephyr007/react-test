@@ -3,7 +3,7 @@ import React from 'react';
 const Launches = () => {
     return(
         <div className ='alert alert-success'>
-            <span>Launches: Size of List</span>
+            <span>No of Launches: Mission Count</span>
         </div>
     );
 };

@@ -7,16 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const App = () =>{
   return(
     <div className='container'>
-      <h1 className='mt-3'>SPA Panel</h1>
-      <div className='row mt-3'>
+      <h1 className='mt-3'>Panel: SpacX Launches</h1>
+      <div className='row mt-2'>
         <div className='col-sm'>
           <Year />
         </div>
         <div className='col-sm'>
           <Launches />
-        </div>
-        <div className='col-sm'>
-          <Year />
         </div>
       </div>
     </div>

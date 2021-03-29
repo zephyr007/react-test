@@ -2,6 +2,7 @@ import React from 'react';
 import Launches from './Launches';
 import Year from './Year';
 import LaunchItem from './LaunchItem';
+import Chart from './Chart';
 
 class SetData extends React.Component{
 
@@ -10,10 +11,11 @@ class SetData extends React.Component{
         Loading: true,
         launches: [],
         length: 1,
-        SuccessCount: 1
+        SuccessCount: 1,
+        yearData: [0,0,0,0,0,0]
     }
 
-    //Hard Coding data for now
+    // //Hard Coding data for now
     // launches = [
     //             {flight_number:0, mission_name: 'Launch 0', mission_id: 0},
     //     //         {flight_number:1, mission_name: 'Launch 1', mission_id: 1},
@@ -32,16 +34,20 @@ class SetData extends React.Component{
 
         this.setState({Loading: false});
         var temp=[];
+        var tempYearCount=[0,0,0,0,0,0];
         var tempCount=0;
         data.forEach(element => {
             //Condition Hard Coded for 2014
-            if (element.launch_year > 2014) {
+            if (element.launch_year >= 2014) {
                 if(element.launch_success)
                     tempCount++;
                 temp.push(element);
+                if(element.launch_year<2020){
+                    tempYearCount[element.launch_year-2014]++;
+                }
             }
           });
-        this.setState({ launches: temp ,length: temp.length});
+        this.setState({ launches: temp ,length: temp.length,yearData: tempYearCount});
         console.log(temp);
         console.log(tempCount);
     }
@@ -49,7 +55,7 @@ class SetData extends React.Component{
     render(){
         return( 
             <div className='container'>
-                <h1 className='mt-3'>Panel: SpacX Launches</h1>
+                <h1 className='mt-3 text-center'>Panel: SpacX Launches</h1>
                     <div className='row mt-2'>
                         <div className='col-sm'>
                         <Year />
@@ -61,7 +67,7 @@ class SetData extends React.Component{
                         </div>
                     </div>
 
-                    <h3 className = 'mt-3'>Launches</h3>
+                    <h3 className = 'mt-3 text-center'>Launches</h3>
                     <div className='row mt-3'>
                         <div className='col-sm'>
                             {this.state.Loading? <h3 className='mt-3'>Loading..</h3>:<ul className="list-group">
@@ -73,6 +79,12 @@ class SetData extends React.Component{
                                 />
                             )))}
                             </ul> }
+                        </div>
+                        <div>
+                            {this.state.Loading?<h3 className='mt-3'>Loading Charts</h3>:<Chart 
+                                yearData={this.state.yearData}
+                                Loading={this.state.Loading}/>
+                            }
                         </div>
                     </div>
             </div>

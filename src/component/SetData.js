@@ -67,6 +67,7 @@ class SetData extends React.Component{
                         </div>
                     </div>
 
+                    {/* Mapping and Getting Data Out */}
                     <h3 className = 'mt-3 text-center'>Launches</h3>
                     <div className='row mt-3'>
                         <div className='col-sm'>
@@ -81,6 +82,7 @@ class SetData extends React.Component{
                             </ul> }
                         </div>
                         <div>
+                            {/* Passing props and yearData fetched */}
                             {this.state.Loading?<h3 className='mt-3'>Loading Charts</h3>:<Chart 
                                 yearData={this.state.yearData}
                                 Loading={this.state.Loading}/>

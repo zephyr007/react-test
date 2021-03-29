@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Launches = () => {
+const Launches = (props) => {
     return(
         <div className ='alert alert-success'>
-            <span>No of Launches: 7</span>
+            <span>No of Launches: {props.SuccessCount}</span>
         </div>
     );
 };

@@ -6,7 +6,7 @@ const LaunchItem = (props) =>{
     <li className="list-group-item d-flex justify-content-between align-items-center">
         {props.mission_name} 
         <div>
-			<span className='badge badge-pill badge-light'>Mission_id: {props.mission_id}</span>
+			<span className='badge badge-pill badge-light'>Flight_No: {props.flight_number}</span>
             {/* {props.mission_id} */}
 		</div>
     </li>

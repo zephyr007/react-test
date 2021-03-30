@@ -76,6 +76,7 @@ class SetData extends React.Component{
                                 <LaunchItem 
                                     flight_number ={launches.flight_number} 
                                     mission_name ={launches.mission_name}
+                                    launch_year={launches.launch_year}
                                     mission_id ={launches.mission_id}
                                 />
                             )))}

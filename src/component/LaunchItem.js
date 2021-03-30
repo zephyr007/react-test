@@ -7,6 +7,7 @@ const LaunchItem = (props) =>{
         {props.mission_name} 
         <div>
 			<span className='badge badge-pill badge-light'>Flight_No: {props.flight_number}</span>
+            <span className='badge badge-pill badge-info'>Launch_Year: {props.launch_year}</span>
             {/* {props.mission_id} */}
 		</div>
     </li>

@@ -1,13 +1,14 @@
 import React from 'react';
 
 //to pass props between components
+
 const LaunchItem = (props) =>{
     return(
-    <li className="list-group-item d-flex justify-content-between align-items-center">
+    <li className="list-group-item d-flex justify-content-between align-items-center"> 
         {props.mission_name} 
         <div>
 			<span className='badge badge-pill badge-light'>Flight_No: {props.flight_number}</span>
-            <span className='badge badge-pill badge-info'>Launch_Year: {props.launch_year}</span>
+            <span className='badge badge-pill badge-info'>Launch_Date: {props.date}</span>
             {/* {props.mission_id} */}
 		</div>
     </li>

@@ -3,6 +3,7 @@ import Launches from './Launches';
 import Year from './Year';
 import LaunchItem from './LaunchItem';
 import Chart from './Chart';
+import Success from './Success';
 
 class SetData extends React.Component{
 
@@ -41,13 +42,18 @@ class SetData extends React.Component{
             if (element.launch_year >= 2014) {
                 if(element.launch_success)
                     tempCount++;
+                var tempDate= element.launch_date_utc.split('T');
+                var dateutc=tempDate[0];
+                console.log(dateutc);
+                
+                element.launch_date_utc=dateutc;    
                 temp.push(element);
                 if(element.launch_year<2020){
                     tempYearCount[element.launch_year-2014]++;
                 }
             }
           });
-        this.setState({ launches: temp ,length: temp.length,yearData: tempYearCount});
+        this.setState({ launches: temp ,length: temp.length,yearData: tempYearCount,SuccessCount:tempCount});
         console.log(temp);
         console.log(tempCount);
     }
@@ -65,6 +71,11 @@ class SetData extends React.Component{
                             SuccessCount={this.state.length} 
                         />
                         </div>
+                        <div className='col-sm'>
+                        <Success
+                            SuccessCount={this.state.SuccessCount}
+                        />
+                        </div>
                     </div>
 
                     {/* Mapping and Getting Data Out */}
@@ -77,6 +88,7 @@ class SetData extends React.Component{
                                     flight_number ={launches.flight_number} 
                                     mission_name ={launches.mission_name}
                                     launch_year={launches.launch_year}
+                                    date={launches.launch_date_utc}
                                     mission_id ={launches.mission_id}
                                 />
                             )))}
